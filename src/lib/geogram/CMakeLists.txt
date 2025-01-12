@@ -8,8 +8,8 @@ add_subdirectory(geogramplus)
 list(APPEND SOURCES $<TARGET_OBJECTS:geogramplus> $<TARGET_OBJECTS:geogramplus_third_party>)
 target_include_directories(
 geogramplus PRIVATE
-${PROJECT_SOURCE_DIR}/src/lib/geogram/
-${PROJECT_SOURCE_DIR}/src/lib/geogram/geogramplus/third_party
+${CMAKE_CURRENT_SOURCE_DIR}
+${CMAKE_CURRENT_SOURCE_DIR}/geogramplus/third_party
 )
 endif()
 
@@ -50,13 +50,13 @@ add_library(geogram ${SOURCES} $<TARGET_OBJECTS:geogram_third_party>)
 target_compile_features(geogram PUBLIC cxx_std_17)
 
 target_include_directories(geogram PRIVATE
-${PROJECT_SOURCE_DIR}/src/lib/geogram/third_party/amgcl
+${CMAKE_CURRENT_SOURCE_DIR}/third_party/amgcl
 )
 
 if(GEOGRAM_WITH_GEOGRAMPLUS)
 target_include_directories(geogram PUBLIC
-${PROJECT_SOURCE_DIR}/src/lib/geogram/
-${PROJECT_SOURCE_DIR}/src/lib/geogram/geogramplus/third_party
+${CMAKE_CURRENT_SOURCE_DIR}
+${CMAKE_CURRENT_SOURCE_DIR}/geogramplus/third_party
 )
 endif()
 
@@ -69,7 +69,8 @@ endif()
 # path for targets that depend on geogram.
 # See: https://cmake.org/cmake/help/v3.3/command/target_include_directories.html
 # https://stackoverflow.com/questions/26243169/cmake-target-include-directories-meaning-of-scope
-target_include_directories(geogram PUBLIC ${PROJECT_SOURCE_DIR}/src/lib)
+cmake_path(GET CMAKE_CURRENT_SOURCE_DIR PARENT_PATH GEOGRAM_SOURCE_PARENT_DIR)
+target_include_directories(geogram PUBLIC ${GEOGRAM_SOURCE_PARENT_DIR})
 
 if(ANDROID)
 target_include_directories(geogram PRIVATE
