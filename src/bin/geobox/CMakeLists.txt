@@ -1,4 +1,4 @@
-include(${PROJECT_SOURCE_DIR}/cmake/opengl.cmake)
+include(${GEOGRAM_SOURCE_DIR}/cmake/opengl.cmake)
 
 aux_source_directories(SOURCES "" .)
 add_executable(geobox ${SOURCES})

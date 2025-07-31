@@ -30,7 +30,7 @@ else()
 endif()
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/src/lib/geogram/third_party/libMeshb/sources
+    ${GEOGRAM_SOURCE_DIR}/src/lib/geogram/third_party/libMeshb/sources
 )
 
 # Since we are in a CMake "object library" (i.e.,

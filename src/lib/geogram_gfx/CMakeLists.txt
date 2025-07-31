@@ -1,4 +1,4 @@
-include(${PROJECT_SOURCE_DIR}/cmake/opengl.cmake)
+include(${GEOGRAM_SOURCE_DIR}/cmake/opengl.cmake)
 
 configure_file(geogram_gfx.pc.in ${PROJECT_BINARY_DIR}/geogram_gfx${VORPALINE_VERSION_MAJOR}.pc @ONLY)
 
@@ -26,8 +26,8 @@ endif()
 
 add_library(geogram_gfx ${SOURCES} $<TARGET_OBJECTS:geogram_gfx_third_party>)
 
-target_include_directories(geogram_gfx PUBLIC ${PROJECT_SOURCE_DIR}/src/lib/geogram_gfx/third_party)
-target_include_directories(geogram_gfx PRIVATE ${PROJECT_SOURCE_DIR}/src/lib/geogram_gfx/third_party/imgui)
+target_include_directories(geogram_gfx PUBLIC ${GEOGRAM_SOURCE_DIR}/src/lib/geogram_gfx/third_party)
+target_include_directories(geogram_gfx PRIVATE ${GEOGRAM_SOURCE_DIR}/src/lib/geogram_gfx/third_party/imgui)
 
 if(ANDROID)
 target_include_directories(geogram_gfx PRIVATE

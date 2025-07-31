@@ -51,7 +51,7 @@ target_sources(
 
 target_include_directories(
   geogram_gfx_third_party PRIVATE
-  ${PROJECT_SOURCE_DIR}/src/lib/geogram_gfx/third_party/imgui
+  ${GEOGRAM_SOURCE_DIR}/src/lib/geogram_gfx/third_party/imgui
 )
 
 if(ANDROID)
@@ -69,7 +69,7 @@ else()
   )
   target_include_directories(
     geogram_gfx_third_party PRIVATE
-    ${PROJECT_SOURCE_DIR}/src/lib/third_party/glfw/include
+    ${GEOGRAM_SOURCE_DIR}/src/lib/third_party/glfw/include
   )
 endif()
 

@@ -1,4 +1,4 @@
-include(${PROJECT_SOURCE_DIR}/cmake/opengl.cmake)
+include(${GEOGRAM_SOURCE_DIR}/cmake/opengl.cmake)
 set(APP_NAME vorpaview)
 
 aux_source_directories(SOURCES "" .)

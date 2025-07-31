@@ -2,7 +2,7 @@
 # Build rules for the documentation
 #
 
-include(${PROJECT_SOURCE_DIR}/cmake/doxygen.cmake)
+include(${GEOGRAM_SOURCE_DIR}/cmake/doxygen.cmake)
 
 cmake_minimum_required(VERSION 3.5...3.30)
 
