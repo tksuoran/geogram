@@ -56,6 +56,7 @@ include(cmake/onetbb.cmake)
 endif()
 
 include(cmake/geogram.cmake)
+message("GEOGRAM_SOURCE_DIR = ${GEOGRAM_SOURCE_DIR}")
 
 # Override default CMAKE_INSTALL_DOCDIR: Use doc instead of CMake default DATAROOTDIR/doc/PROJECT_NAME
 set(CMAKE_INSTALL_DOCDIR doc CACHE PATH "Documentation root")
