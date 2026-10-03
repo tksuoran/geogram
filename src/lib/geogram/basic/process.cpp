@@ -261,19 +261,19 @@ namespace {
         }
 
         /** \copydoc GEO::ThreadManager::maximum_concurrent_threads() */
-        virtual index_t maximum_concurrent_threads() {
-            return tbb::this_task_arena::max_concurrency();
+        index_t maximum_concurrent_threads() override {
+            return index_t(tbb::this_task_arena::max_concurrency());
         }
 
     protected:
         /** \brief TBBThreadManager destructor */
-        virtual ~TBBThreadManager() {
+        ~TBBThreadManager() override {
         }
 
         /** \copydoc GEO::ThreadManager::run_concurrent_threads() */
-        virtual void run_concurrent_threads(
+        void run_concurrent_threads(
             ThreadGroup& threads, index_t max_threads
-        ) {
+        ) override {
             tbb::task_arena arena(static_cast<std::int32_t>(max_threads));
             arena.execute([&threads] {
                 tbb::parallel_for(
